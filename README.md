@@ -32,7 +32,7 @@ However, it’s still the best free GUI-based tool for the job.
 ## Setup
 
 1) Install Postgres. I'd recommend either [Docker PostGIS](https://hub.docker.com/r/mdillon/postgis/) (if you're familiar with Docker)
-or the [Postgres.app](postgresapp.com) installation if you're not.
+or the [Postgres.app](https://postgresapp.com) installation if you're not.
 2) Connect to the prompt of your Postgres installation and type `CREATE EXTENSION postgis;` If it's already installed, you'll get
 the message `ERROR:  extension "postgis" already exists`. If instead you see the phrase `CREATE EXTENSION`,
 you'll have installed the PostGIS extension for Postgres, which will let us manipulate geometry data in SQL.
