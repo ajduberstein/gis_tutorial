@@ -41,7 +41,7 @@ you'll have installed the PostGIS extension for Postgres, which will let us mani
 
 ## Data for these examples
 
-1) Clone the [Uber TLC FOIL data set](https://github.com/fivethirtyeight/uber-tlc-foil-response), which will give us quite a bit of geospatial data to work with.
+1) Fro the [Uber TLC FOIL data set](https://github.com/fivethirtyeight/uber-tlc-foil-response), download the July 2014 data by right-clicking [here](https://github.com/fivethirtyeight/uber-tlc-foil-response/blob/master/uber-trip-data/uber-raw-data-jul14.csv) and selecting *Save as...*.
 2) Download the New York state urban area neighborhood boundaries from Zillow.com by clicking [here](https://www.zillowstatic.com/static/shp/ZillowNeighborhoods-NY.zip). Unpack the zip file and double-click on the .shp, and open it up in QGIS. We should be able to navigate to the burroughs of New York City.
 
 ## Visualizing points
