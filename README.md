@@ -1,6 +1,6 @@
 # Using common GIS tools
 
-[[https://raw.githubusercontent.com/ajduberstein/gis_tutorial/master/nyc.png]]
+![July 2014 Uber trips](https://raw.githubusercontent.com/ajduberstein/gis_tutorial/master/nyc.png)
 
 ## Visualizing and operating on geospatial data
 
