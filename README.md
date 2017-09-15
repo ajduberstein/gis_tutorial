@@ -1,6 +1,8 @@
 # Using common GIS tools
 
-![Mapping example](https://uberblogapi.10upcdn.com/wp-content/uploads/sites/78/2014/11/Las_Vegas_Eyeballs.jpg)
+[[https://uberblogapi.10upcdn.com/wp-content/uploads/sites/78/2014/11/Las_Vegas_Eyeballs.jpg]]
+
+*Visualizing Uber app opens in Las Vegas, November 2014. Source: [Uber Blog](https://www.uber.com/blog/las-vegas/uber-connects-las-vegas/)*
 
 ## Visualizing and operating on geospatial data
 
