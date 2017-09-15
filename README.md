@@ -1,4 +1,4 @@
-# Map Quest: Using GIS tools to visualize data
+# Map Quest: Visualizing geospatial data
 
 ![July 2014 Uber trips](https://raw.githubusercontent.com/ajduberstein/gis_tutorial/master/nyc.png)
 
@@ -7,7 +7,7 @@
 ## Visualizing and operating on geospatial data
 
 I've worked for a large ridesharing company for three years. Toward the beginning of my job, I was responsible for 
-much of the public-facing data visualization[[1]](https://github.com/ajduberstein/gis_tutorial/blob/master/README.md#footnotes). Many of my favorite visualizations were static maps, which I've found to be an incredibly useful way of drawing insight from data. Here's a tutorial on how to create works like those.
+much of the public-facing data visualization[[1]](https://github.com/ajduberstein/gis_tutorial/blob/master/README.md#footnotes). Many of my favorite visualizations were static maps, which I've found to be an incredibly useful way of drawing insight from data. Here's a tutorial on how to create works like those using opensource geographic information system (GIS) tooling.
 
 ## Why use PostGIS for GIS
 
@@ -115,7 +115,7 @@ regionid | 343894
 geom     | 0106000020E6100...
 ```
 
-The shape is listed in a format called [well-known binary (WKB)](http://edndoc.esri.com/arcsde/9.1/general_topics/wkb_representation.htm), which we'll see a few more times. It's a common representation for geometry data.
+The shape data in the `geom` column is represented in a format called [well-known binary (WKB)](http://edndoc.esri.com/arcsde/9.1/general_topics/wkb_representation.htm), which we'll see a few more times. It's a common representation for geometry data.
 
 We can also see what values are indexed on the table:
 
