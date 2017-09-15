@@ -337,6 +337,11 @@ GROUP BY 1, 2
 
 Open up QGIS and select this table. Follow the gif below to style the choropleth.
 
+![Making a choropleth in QGIS](https://raw.githubusercontent.com/ajduberstein/gis_tutorial/master/2_choropleth.gif)
+
+The end result should look something like this:
+
+
 
 ## Visualizing points-near-POI relationships
 
