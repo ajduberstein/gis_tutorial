@@ -227,7 +227,7 @@ A deeper dive into this statement:
 
 - `UPDATE` fills the `geom` column with the data we feed it after the `=`.
 
-- `ST_POINT` returns a WKB point. `ST_SETSRID(..., 4326)` sets a value called an spatial reference identifier (SRID) to 4326. You'll notice that 4326 has occurred a few times in this document so far. It's a [Spatial Reference System Identifier](https://en.wikipedia.org/wiki/Spatial_reference_system), a way of storing the map projection information about a geometry. You may remember discussions about map projections from elementary school--it turns out that projecting a 3D spheroid like Earth onto a 2D surface like your screen requires encoding some metadata about how that information should be displayed. SRID is a way of encoding map projections, and 4326 is the most common map projection (for example, it's what you see on Google Maps).
+- `ST_POINT` returns a WKB point. `ST_SETSRID(..., 4326)` sets a value called an spatial reference identifier (SRID) to 4326. Astute readers may have noticed that 4326 has occurred a few times in this document so far. It's a [Spatial Reference System Identifier](https://en.wikipedia.org/wiki/Spatial_reference_system), a way of storing the map projection information about a geometry. You may remember discussions about map projections like Mercator from elementary school--projecting a 3D spheroid like Earth onto a 2D surface like your screen requires encoding some metadata about how that information should be displayed. SRID specifies the encoding for that map projection. What you see on Google Maps and in these examples is 4326, likely the most common map projection.
 
 - You'll also notice that, perhaps unintuitively `lng` (our field name for longitude) precedes `lat`, though we often refer to these points as lat-lon's. Why? Longitude is an X coordinate, and latitude is a Y coordinate, and, if you recall from geometry class, we by convention list coordinates in (X, Y) pairs.
 
@@ -268,15 +268,31 @@ Open up QGIS. Since the elephant is the official animal of PostgreSQL, click the
 
 Add this connection and save it. Connect to Postgres, and you'll see that we've got tables named `uber` and `ny_nbhds` that you can now select and visualize.
 
-## Visualizing point-in-polygon relationships
+## Visualizing point-in-polygon relationships: Counting trips by neighborhood
+
+Having our pick-up points and neighborhood boundaries loaded into Postgres, we can join the two. Let's count the number of trips by neighbhorhood. In PostGIS, the function for checking a point-in-polygon relationship is `ST_Contains`. From the [PostGIS docs](https://postgis.net/docs/ST_Contains.html),
+
+> ST_Contains — Returns true if and only if no points of B lie in the exterior of A, and at least one point of the interior of B lies in the interior of A.
+
+Less formally, `ST_Contains(polygon, point)` will return a Boolean, `true` if the point is within the polygon and `false` otherwise.
+
+How many points are within the neighborhood boundaries we have?
+
+```
+duberstein=# SELECT COUNT(*) FROM uber u JOIN ny_nbhds n ON ST_CONTAINS(n.geom, u.geom);
+ count
+--------
+ 702795
+(1 row)
+```
+
+Recall from above that we have 792,121 points in this table, so not all points fall within our neighborhood boundaries. We can use QGIS to visualize this by placing both geometries on a map and visualizing them.
 
 ## Visualizing points-near-POI relationships
 
 I don’t believe there’s a real name for this pattern of work, but it’s definitely frequent request. For example, say we want 
 to study the complementarity between a for-hire vehicles and public transit.
 To do that, we could find all the drop-offs that were within 10 meters of a public transit stop.
-
-Placeholder text
 
 ## What to do when you don’t have PostGIS
 
