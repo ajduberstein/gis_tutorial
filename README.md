@@ -341,23 +341,15 @@ Open up QGIS and select this table. Follow the gif below to style the choropleth
 
 The end result should look something like this:
 
-
-
-## Visualizing points-near-POI relationships
-
-I don’t believe there’s a real name for this pattern of work, but it’s definitely frequent request. For example, say we want 
-to study the complementarity between a for-hire vehicles and public transit.
-To do that, we could find all the drop-offs that were within 10 meters of a public transit stop.
-
-## What to do when you don’t have PostGIS
-
-*Relying on geohashes.* Geohashes are often a great way of solving the problem and a decent hack for creating indexes. 
-Although it’s not as efficient as a [GiST index](https://en.wikipedia.org/wiki/GiST),
-you can use them in MapReduce-based frameworks to significantly speed up
-spatial joins.
-
+![July 2014 Uber trips by neighborhood](https://raw.githubusercontent.com/ajduberstein/gis_tutorial/master/choropleth.png)
 
 #### Footnotes
 
 [1] For example, [here](https://www.americaninno.com/boston/uber-boston-uberx-more-responsive-than-boston-taxis/),
 [here](https://pbs.twimg.com/media/BxXPUwbIQAEp0TY.jpg), and [here](https://uberblogapi.10upcdn.com/wp-content/uploads/sites/78/2014/11/Las_Vegas_Eyeballs.jpg).
+
+#### Attribution
+
+[Neighborhood shapes from Zillow.com](https://www.zillow.com/howto/api/neighborhood-boundaries.htm) used under a [Creative Commons Licenese](http://creativecommons.org/licenses/by-sa/3.0).
+
+[538 Uber TLC data](https://github.com/fivethirtyeight/uber-tlc-foil-response) obtained by [FOIL](http://www.nyc.gov/html/tlc/html/passenger/records.shtml).
