@@ -1,8 +1,8 @@
-# Using common GIS tools
+# Map Quest: Using common GIS tools to visualize data
 
 ![July 2014 Uber trips](https://raw.githubusercontent.com/ajduberstein/gis_tutorial/master/nyc.png)
 
-*Using QGIS and PostGIS to visualize over 700,000 Uber pick-ups. Source: [538 Uber TLC FOIL data](https://github.com/fivethirtyeight/uber-tlc-foil-response).*
+*An example of using QGIS and PostGIS to visualize over 700,000 Uber pick-ups. Source: [538 Uber TLC FOIL data](https://github.com/fivethirtyeight/uber-tlc-foil-response).*
 
 ## Visualizing and operating on geospatial data
 
@@ -83,7 +83,7 @@ duberstein@MacBook-Pro:~/Desktop/geo|
 ⇒  /Applications/Postgres.app/Contents/Versions/9.5/bin/psql -f ny.sql
 ```
 
-(If you don't want to type this out in full, learn about [Bash aliases](https://www.digitalocean.com/community/tutorials/an-introduction-to-useful-bash-aliases-and-functions).)
+(If you find yourself typing this frequently and don't want to type this out in full, learn about [Bash aliases](https://www.digitalocean.com/community/tutorials/an-introduction-to-useful-bash-aliases-and-functions).)
 
 You've now created a table called `ny_nbhds`. Check it out using `psql`:
 
