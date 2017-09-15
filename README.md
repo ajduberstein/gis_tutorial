@@ -19,10 +19,10 @@ my query engine should be intelligent enough to determine that it shouldn’t ch
 obviously distant shapes–don’t check if points in NY belong in CA. 
 
 **Scale**. You can very easily get about 120 million points indexed on a standard MacBook Pro running PostGIS--
-I’m sure you can comfortably get many more on a 2xlarge EC2. Running these analyses locally
-means that you don’t have to ask a DBA for permission to make table changes.
+I’m sure you can comfortably get many more on a 2xlarge EC2. (As an added bonus, running these analyses locally
+means that you don’t have to ask a DBA for permission to make table changes.)
 
-**Postgres ecosystem**. Postgres is a quite good analytics database–date-time conversions, string aggregation, UDAFs, UDFs.
+**Postgres ecosystem**. Postgres is a quite good analytics database, having a rich syntax for date-time handling, analytic functions, custom types, and UDFs, amongst other features.
 
 **Living documentation**.  Since the GIS community has hardly migrated away from PostGIS, you have the benefit of 10+ years of StackOverflow Q+A’s.
 
@@ -30,18 +30,18 @@ means that you don’t have to ask a DBA for permission to make table changes.
 
 QGIS is my vote for the best free geospatial data visualizer and editor. Candidly, I wish I didn’t have to use QGIS. 
 It’s quite buggy--long-time colleagues know I describe it as a piece of malware that happens to double as mapping software.
-However, it’s still the best, free GUI for the job.
+However, it’s still the best free GUI for the job.
 
 ## Setup
 
-1) Install Postgres. I'd recommend either [Docker PostGIS](https://hub.docker.com/r/mdillon/postgis/) (if you're familiar with Docker)
+1) **Install Postgres.** I'd recommend either [Docker PostGIS](https://hub.docker.com/r/mdillon/postgis/) (if you're familiar with Docker)
 or the [Postgres.app](https://postgresapp.com) installation if you're not.
-2) Connect to the prompt of your Postgres installation and type `CREATE EXTENSION postgis;` If it's already installed, you'll get
+2) **Install PostGIS.** Connect to the prompt of your Postgres installation and type `CREATE EXTENSION postgis;` If it's already installed, you'll get
 the message `ERROR:  extension "postgis" already exists`. If instead you see the phrase `CREATE EXTENSION`,
 you'll have installed the PostGIS extension for Postgres, which will let us manipulate geometry data in SQL.
-3) Install [QGIS](https://www.qgis.org/en/site/forusers/alldownloads.html), which will help visualize our work. (I recommend the KyngChaos installation if you're using OS X.) It's not uncommon in my experience for QGIS to be buggy, and the installation process is occasionally finicky.
-4) Optional, but highly recommended–[Install a basemap plugin](https://gis.stackexchange.com/questions/20191/adding-basemaps-from-google-or-bing-in-qgis). This will put a map behind the geometry objects that we’ll visualize on a map.
-5) You may also need to install [shp2pgsql](https://gis.stackexchange.com/questions/148524/i-have-not-found-shp2pgsql-in-postgis-installation) for converting shapefiles to Postgres data.
+3) **Install QGIS.** [QGIS](https://www.qgis.org/en/site/forusers/alldownloads.html) will help visualize our work. (I recommend the KyngChaos installation if you're using OS X.) It's not uncommon in my experience for QGIS to be buggy, and the installation process is occasionally finicky.
+4) **Install shp2pgsql.** You may also need to install [shp2pgsql](https://gis.stackexchange.com/questions/148524/i-have-not-found-shp2pgsql-in-postgis-installation) for converting shapefiles to Postgres data.
+5) **Install a basemap plugin.** Optional, but highly recommended–[install a basemap plugin](https://gis.stackexchange.com/questions/20191/adding-basemaps-from-google-or-bing-in-qgis). This will put a common map (like Google Satellite map or [the beautiful Stamen Toner](http://maps.stamen.com/toner/#12/37.7706/-122.3782)) behind the geometry objects that we’ll visualize.
 
 ## Data for these examples
 
@@ -52,7 +52,7 @@ you'll have installed the PostGIS extension for Postgres, which will let us mani
 
 ## Importing data into Postgres
 
-### Importing polygons into Postgres
+### Importing polygons
 
 Here's a directory with both files:
 ```
