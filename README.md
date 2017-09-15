@@ -286,5 +286,8 @@ Although it’s not as efficient as a [GiST index](https://en.wikipedia.org/wiki
 you can use them in MapReduce-based frameworks to significantly speed up
 spatial joins.
 
+
+#### Footnotes
+
 [1] For example, [here](https://www.americaninno.com/boston/uber-boston-uberx-more-responsive-than-boston-taxis/),
 [here](https://pbs.twimg.com/media/BxXPUwbIQAEp0TY.jpg), and [here](https://uberblogapi.10upcdn.com/wp-content/uploads/sites/78/2014/11/Las_Vegas_Eyeballs.jpg).
