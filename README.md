@@ -1,5 +1,7 @@
 # Using common GIS tools
 
+![Mapping example](https://uberblogapi.10upcdn.com/wp-content/uploads/sites/78/2014/11/Las_Vegas_Eyeballs.jpg)
+
 ## Visualizing and operating on geospatial data
 
 I've worked for a large ridesharing company for three years and toward the beginning of my job in late 2014 was responsible for 
