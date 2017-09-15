@@ -7,7 +7,7 @@
 ## Visualizing and operating on geospatial data
 
 I've worked for a large ridesharing company for three years and toward the beginning of my job in late 2014 was responsible for 
-much of the public-facing data visualization[1], and many of favorites were static maps. 
+much of the public-facing data visualization[[1]](https://github.com/ajduberstein/gis_tutorial/blob/master/README.md#footnotes), and many of favorites were static maps. 
 I’ve found these to be an incredibly useful way of drawing insight from data. Here's a tutorial on how to create simple works like those.
 
 ## Why use PostGIS for GIS
