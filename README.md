@@ -286,7 +286,9 @@ duberstein=# SELECT COUNT(*) FROM uber u JOIN ny_nbhds n ON ST_CONTAINS(n.geom, 
 (1 row)
 ```
 
-Recall from above that we have 792,121 points in this table, so not all points fall within our neighborhood boundaries. We can use QGIS to visualize this by placing both geometries on a map and visualizing them.
+Recall from above that we have 792,121 points in this table, so about 12% of points fall within our neighborhood boundaries. We can use QGIS to visualize this by placing both geometries on a map and visualizing them.
+
+![Visualized overlap between shapes](https://raw.githubusercontent.com/ajduberstein/gis_tutorial/master/overlap.png)
 
 ## Visualizing points-near-POI relationships
 
