@@ -1,5 +1,7 @@
 # Using common GIS tools
 
+[[https://raw.githubusercontent.com/ajduberstein/gis_tutorial/master/nyc.png]]
+
 ## Visualizing and operating on geospatial data
 
 I've worked for a large ridesharing company for three years and toward the beginning of my job in late 2014 was responsible for 
