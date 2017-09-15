@@ -2,6 +2,8 @@
 
 ![July 2014 Uber trips](https://raw.githubusercontent.com/ajduberstein/gis_tutorial/master/nyc.png)
 
+*Using QGIS and PostGIS to visualize over 700,000 Uber pick-ups. Source: [538 Uber TLC FOIL data](https://github.com/fivethirtyeight/uber-tlc-foil-response).*
+
 ## Visualizing and operating on geospatial data
 
 I've worked for a large ridesharing company for three years and toward the beginning of my job in late 2014 was responsible for 
