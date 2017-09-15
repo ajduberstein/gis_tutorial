@@ -39,6 +39,11 @@ you'll have installed the PostGIS extension for Postgres, which will let us mani
 3) Install [QGIS](https://www.qgis.org/en/site/forusers/alldownloads.html), which will help visualize our work. (I recommend the KyngChaos installation if you're using OS X.) It's not uncommon in my experience for QGIS to be buggy, and the installation process is occasionally finicky.
 4) Optional, but highly recommended–[Install a basemap plugin](https://gis.stackexchange.com/questions/20191/adding-basemaps-from-google-or-bing-in-qgis). This will put a map behind the geometry objects that we’ll visualize on a map.
 
+## Data for these examples
+
+1) Clone the [Uber TLC FOIL data set](https://github.com/fivethirtyeight/uber-tlc-foil-response), which will give us quite a bit of geospatial data to work with.
+2) Download the New York state urban area neighborhood boundaries from Zillow.com by clicking [here](https://www.zillowstatic.com/static/shp/ZillowNeighborhoods-NY.zip). Unpack the zip file and double-click on the .shp, and open it up in QGIS. We should be able to navigate to the burroughs of New York City.
+
 ## Visualizing points
 
 Connect to your Postgres instance’s psql prompt.
