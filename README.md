@@ -38,6 +38,7 @@ the message `ERROR:  extension "postgis" already exists`. If instead you see the
 you'll have installed the PostGIS extension for Postgres, which will let us manipulate geometry data in SQL.
 3) Install [QGIS](https://www.qgis.org/en/site/forusers/alldownloads.html), which will help visualize our work. (I recommend the KyngChaos installation if you're using OS X.) It's not uncommon in my experience for QGIS to be buggy, and the installation process is occasionally finicky.
 4) Optional, but highly recommended–[Install a basemap plugin](https://gis.stackexchange.com/questions/20191/adding-basemaps-from-google-or-bing-in-qgis). This will put a map behind the geometry objects that we’ll visualize on a map.
+5) You may also need to install [shp2pgsql](https://gis.stackexchange.com/questions/148524/i-have-not-found-shp2pgsql-in-postgis-installation) for converting shapefiles to Postgres data.
 
 ## Data for these examples
 
@@ -48,7 +49,16 @@ you'll have installed the PostGIS extension for Postgres, which will let us mani
 
 ## Visualizing points
 
-Connect to your Postgres instance’s psql prompt.
+1) Move these data sets into the same directory:
+
+```
+duberstein@MacBook-Pro-2:~/Desktop/geo|
+⇒  ls
+ZillowNeighborhoods-NY  uber-raw-data-jul14.csv
+```
+
+2) 
+
 
 Placeholder text
 
