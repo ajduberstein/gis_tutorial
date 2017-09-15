@@ -47,24 +47,103 @@ you'll have installed the PostGIS extension for Postgres, which will let us mani
 
 ![Viewing NYC .shp](https://raw.githubusercontent.com/ajduberstein/gis_tutorial/master/1_using_qgis.gif)
 
-## Visualizing points
+## Visualizing point-in-polygon relationships
 
-1) Move these data sets into the same directory:
+### Importing polygons into Postgres
 
+Here's a directory with both files:
 ```
-duberstein@MacBook-Pro-2:~/Desktop/geo|
+duberstein@MacBook-Pro:~/Desktop/geo|
 ⇒  ls
 ZillowNeighborhoods-NY  uber-raw-data-jul14.csv
 ```
 
-2) 
+I can copy the neighborhood boundaries into Postgres using the `shp2pgsql` utility:
 
+```
+duberstein@MacBook-Pro:~/Desktop/geo|
+⇒  shp2pgsql -s 4326 ZillowNeighborhoods-NY/ZillowNeighborhoods-NY.shp ny_nbhds postgres > ny.sql
+```
 
-Placeholder text
+This produces a SQL file with all the shape data--run `more ny.sql` to see the contents. You can execute that SQL file from `psql` with the `-f` flag.
 
-## Visualizing point-in-polygon relationships
+```
+duberstein@MacBook-Pro:~/Desktop/geo|
+⇒  psql -f ny.sql
+```
 
-Placeholder text
+You've now created a table called `ny_nbhds`. Check it out using `psql`:
+
+```
+duberstein@MacBook-Pro:~/Desktop/geo|
+⇒  psql
+psql (9.5.7)
+Type "help" for help.
+
+duberstein=# SELECT COUNT(*) FROM ny_nbhds;
+ count
+-------
+   266
+(1 row)
+```
+
+The table itself contains shapes and their metadata:
+
+```
+duberstein=# \x auto
+Expanded display is used automatically.
+duberstein=# SELECT * FROM ny_nbhds LIMIT 1;
+-[ RECORD 1 ]-
+gid      | 1
+state    | NY
+county   | Monroe
+city     | Rochester
+name     | Ellwanger-Barry
+regionid | 343894
+geom     | 0106000020E6100...
+```
+
+The shape is listed in a format called [well-known binary (WKB)](http://edndoc.esri.com/arcsde/9.1/general_topics/wkb_representation.htm), which we'll see a few more times. It's a common representation for geometry data.
+
+We can also see what values are indexed on the table:
+
+```
+duberstein=# \d ny_nbhds
+                                     Table "public.ny_nbhds"
+  Column  |            Type             |                       Modifiers
+----------+-----------------------------+--------------------------------------------------------
+ gid      | integer                     | not null default nextval('ny_nbhds_gid_seq'::regclass)
+ state    | character varying(2)        |
+ county   | character varying(43)       |
+ city     | character varying(64)       |
+ name     | character varying(64)       |
+ regionid | numeric                     |
+ geom     | geometry(MultiPolygon,4326) |
+Indexes:
+    "ny_nbhds_pkey" PRIMARY KEY, btree (gid)
+```
+
+Since we plan to join on geometry data, let's add an index to the geometry like so:
+
+```
+duberstein=# CREATE INDEX ON ny_nbhds USING GIST(geom);
+CREATE INDEX
+```
+
+We can use `\d` again in the `psql` prompt to verify that we have an additional index:
+
+```
+duberstein=# \d ny_nbhds
+                                     Table "public.ny_nbhds"
+  Column  |            Type             |                       Modifiers
+----------+-----------------------------+--------------------------------------------------------
+...
+Indexes:
+    "ny_nbhds_pkey" PRIMARY KEY, btree (gid)
+    "ny_nbhds_geom_idx" gist (geom)
+```
+
+##
 
 ## Visualizing points-near-POI relationships
 
