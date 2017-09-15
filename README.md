@@ -290,6 +290,54 @@ Recall from above that we have 792,121 points in this table, so about 12% of poi
 
 ![Visualized overlap between shapes](https://raw.githubusercontent.com/ajduberstein/gis_tutorial/master/overlap.png)
 
+Our data set contains New Jersey-based trips that seem like they'll be excluded in this analysis.
+
+Let's refine our original question: What are the top 10 most frequent neighborhoods for pick-ups? The query below will address that:
+
+```
+SELECT n.name
+, COUNT(*) AS freq
+FROM uber u
+JOIN ny_nbhds n
+ON ST_CONTAINS(n.geom, u.geom)
+GROUP BY 1
+ORDER BY 2 DESC
+LIMIT 10
+;
+```
+
+The results:
+```
+           name            | freq
+---------------------------+--------
+ Midtown                   | 109671
+ Chelsea                   |  55550
+ Upper East Side           |  54261
+ Gramercy                  |  48617
+ Upper West Side           |  35219
+ Greenwich Village         |  34716
+ Soho                      |  29593
+ West Village              |  27678
+ Garment District          |  27101
+ East Village              |  25890
+ ```
+
+Let's create a choropleth out of the frequency. We can do this by preserving the result set using a `CREATE TABLE ... AS SELECT` statement while remembering to include the geometry column from our neighborhood boundaries:
+
+```
+CREATE TABLE pickup_choro AS
+SELECT n.name
+, n.geom
+, COUNT(*) AS freq
+FROM uber u
+JOIN ny_nbhds n
+ON ST_CONTAINS(n.geom, u.geom)
+GROUP BY 1, 2
+```
+
+Open up QGIS and select this table. Follow the gif below to style the choropleth.
+
+
 ## Visualizing points-near-POI relationships
 
 I don’t believe there’s a real name for this pattern of work, but it’s definitely frequent request. For example, say we want 
