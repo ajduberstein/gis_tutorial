@@ -6,9 +6,8 @@
 
 ## Visualizing and operating on geospatial data
 
-I've worked for a large ridesharing company for three years and toward the beginning of my job in late 2014 was responsible for 
-much of the public-facing data visualization[[1]](https://github.com/ajduberstein/gis_tutorial/blob/master/README.md#footnotes), and many of favorites were static maps. 
-I’ve found these to be an incredibly useful way of drawing insight from data. Here's a tutorial on how to create simple works like those.
+I've worked for a large ridesharing company for three years. Toward the beginning of my job, I was responsible for 
+much of the public-facing data visualization[[1]](https://github.com/ajduberstein/gis_tutorial/blob/master/README.md#footnotes). Many of my favorite visualizations were static maps, which I've found to be an incredibly useful way of drawing insight from data. Here's a tutorial on how to create works like those.
 
 ## Why use PostGIS for GIS
 
@@ -31,7 +30,7 @@ means that you don’t have to ask a DBA for permission to make table changes.
 
 QGIS is my vote for the best free geospatial data visualizer and editor. Candidly, I wish I didn’t have to use QGIS. 
 It’s quite buggy--long-time colleagues know I describe it as a piece of malware that happens to double as mapping software.
-However, it’s still the best free GUI-based tool for the job.
+However, it’s still the best, free GUI for the job.
 
 ## Setup
 
