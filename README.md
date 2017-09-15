@@ -152,7 +152,7 @@ Indexes:
     "ny_nbhds_geom_idx" gist (geom)
 ```
 
-Press `ctrl`+`d` to exist `psql`.
+Press `ctrl`+`d` to exit `psql`.
 
 ### Importing points into Postgres
 
