@@ -1,4 +1,5 @@
-# Map Quest: Using common GIS tools to visualize data
+# Map Quest
+### Using common GIS tools to visualize data
 
 ![July 2014 Uber trips](https://raw.githubusercontent.com/ajduberstein/gis_tutorial/master/nyc.png)
 
