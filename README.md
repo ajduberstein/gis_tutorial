@@ -47,7 +47,7 @@ you'll have installed the PostGIS extension for Postgres, which will let us mani
 
 ![Viewing NYC .shp](https://raw.githubusercontent.com/ajduberstein/gis_tutorial/master/1_using_qgis.gif)
 
-## Visualizing point-in-polygon relationships
+## Importing data into Postgres
 
 ### Importing polygons into Postgres
 
@@ -250,6 +250,22 @@ CREATE INDEX
 
 You can run the `\d` command to verify that the data is indexed, if you'd like.
 
+## Connecting QGIS to Postgres
+
+Open up QGIS. Since the elephant is the official animal of PostgreSQL, click the elephant head on the left panel. Press `New` to generate a new connection, and add the connection information that's used by `psql`. If you used Postgres.app, the connection info is as follows:
+
+|Info|Value|
+|----|---------|
+|Host|`localhost`|
+|Port|`5432`|
+|User|Your system user name--you can type `whoami` into a Bash shell to figure this out if it's non-obvious|
+|Database|same as user|
+|Password|none, leave this blank|
+|Connection URL|`postgresql://localhost`|
+
+Add this connection and save it. Connect to Postgres, and you'll see that we've got tables named `uber` and `ny_nbhds` that you can now select and visualize.
+
+## Visualizing point-in-polygon relationships
 
 ## Visualizing points-near-POI relationships
 
